@@ -14,7 +14,7 @@ export default ({store, app}, inject) => {
                 accessToken: token
             };
 
-            app.$axios.$get('https://jsonplaceholder.typicode.com/todos/1').then(response => {
+            app.$axios.$get('/api/test').then(response => {
                 console.log('== DEV ==', response);
             });
 
