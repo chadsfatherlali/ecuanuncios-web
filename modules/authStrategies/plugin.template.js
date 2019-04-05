@@ -5,7 +5,7 @@ export default ({store, app}, inject) => {
     const strategies = <%= JSON.stringify(options) %>;
 
     inject('authStrategies', {
-        local (username, password) {
+        async local (username, password) {
             let token = jwt.sign({
                 foo: 'bar'
             }, 'santiagofernandosanchezgomez');
@@ -14,9 +14,12 @@ export default ({store, app}, inject) => {
                 accessToken: token
             };
 
-            app.$axios.$get('/api/test').then(response => {
-                console.log('== DEV ==', response);
+            let response = await app.$axios.$post('http://localhost:3001/users', {
+                name: 'Jr',
+                lastname: 'Sánchez'
             });
+
+            console.log('== RESPONSE ==', response);
 
             store.commit('setAuth', auth);
             
