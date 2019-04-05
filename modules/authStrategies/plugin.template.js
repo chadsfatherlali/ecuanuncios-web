@@ -15,8 +15,8 @@ export default ({store, app}, inject) => {
             };
 
             let response = await app.$axios.$post('http://localhost:3001/users', {
-                name: 'Jr',
-                lastname: 'Sánchez'
+                username: 'chadsfather@gmail.com',
+                passoword: 'lolitas$1256'
             });
 
             console.log('== RESPONSE ==', response);
